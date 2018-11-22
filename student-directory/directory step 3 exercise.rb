@@ -20,7 +20,7 @@ end
 
 def print(students)
   students.each do |student|
-	  puts "#{student[:name]} (#{student[:cohort]} cohort)" 
+    puts "#{student[:name]} (#{student[:cohort]} cohort)" 
   end
 end
 def print_footer(students)
@@ -28,17 +28,17 @@ def print_footer(students)
 end 
 
 def input_students
-	puts "Please enter the names of the students"
-	puts "To finish, just hit enter twice"
-	students = []	
-	name = gets.chomp 
+  puts "Please enter the names of the students"
+  puts "To finish, just hit enter twice"
+  students = [] 
+  name = gets.chomp 
 
-	while !name.empty? do 
-		students << {name: name, cohort: :november}
-		puts "Now we have #{students.count} students"
-		name = gets.chomp
-	end
-	students
+  while !name.empty? do 
+    students << {name: name, cohort: :november} if name.length < 12
+    puts "Now we have #{students.count} students"
+    name = gets.chomp
+  end
+  students
 end 
 
 students = input_students
